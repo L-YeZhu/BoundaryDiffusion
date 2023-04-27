@@ -1,6 +1,9 @@
 # BoundaryDiffusion
 
-This is the official Pytorch implementation of the paper **[Boundary Guided Mixing Trajectory for Semantic Control with Diffusion Models](https://arxiv.org/abs/2302.08357)**.
+This is the official Pytorch implementation of the paper **[Boundary Guided Mixing Trajectory for Semantic Control with Diffusion Models](https://arxiv.org/abs/2302.08357)**. We will release the full code later, stay tuned!
+
+
+
 
 
 ## 1. Project Overview
@@ -21,3 +24,22 @@ Our methodology design in this work is based on the analysis of high-dimensional
 
 Our theoretical analysis also introduces the concept of **Mixing Step** to characterize the convergence of pre-trained diffusion models, inspired by the **Markov mixing time** study.
 Please refer to our paper for more details.
+
+
+
+## 3. Citation
+
+If you find our work interesting and useful, please consider citing it.
+```
+@article{zhu2023boundary,
+  title={Boundary Guided Mixing Trajectory for Semantic Control with Diffusion Models},
+  author={Zhu, Ye and Wu, Yu and Deng, Zhiwei and Russakovsky, Olga and Yan, Yan},
+  journal={arXiv preprint arXiv:2302.08357},
+  year={2023}
+}
+```
+
+
+## 4. Acknowledgement
+
+We would like to thank the authors of previous related projects for generously sharing their code, especially the [DiffusionCLIP](https://github.com/gwang-kim/DiffusionCLIP), from which our code is adapted. I would like also personally thank my math professor Alain CHILLÈS for insightful discussions on the theoretical analysis. 
