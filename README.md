@@ -26,7 +26,7 @@ Our methodology design in this work is based on the analysis of high-dimensional
 
 
  <p align="center">
-    <img src="assets/geometry.png" width="500">
+    <img src="assets/geo.png" width="500">
 
 
 Our theoretical analysis also introduces the concept of **Mixing Step** to characterize the convergence of pre-trained diffusion models, inspired by the **Markov mixing time** study.
