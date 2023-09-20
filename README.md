@@ -3,7 +3,7 @@
 This is the official Pytorch implementation of the paper **[Boundary Guided Mixing Trajectory for Semantic Control with Diffusion Models](https://arxiv.org/abs/2302.08357)**. 
 
 
-Please find our **randomly selected, non-cherry-picked** results comparison with several learning-based state-of-the-art methods (Asyrp[ICLR23], DiffusionCLIP[CVPR22]) for the image semantic editing task below, using <**unconditionally** trained denoising diffusion probablistic models (DDPMs).
+Please find our **randomly selected, non-cherry-picked** results comparison with several learning-based state-of-the-art methods (Asyrp[ICLR23], DiffusionCLIP[CVPR22]) for the image semantic editing task below, usin **unconditionally** trained denoising diffusion probablistic models (DDPMs).
 
 <p align="center">
     <img src="assets/non_cherry_picky.png" width="750">
@@ -111,7 +111,7 @@ For text-conditioned semantic control, you will need to first generate some synt
 
 
 
-## 6. Citation
+## 7. Citation
 
 If you find our work interesting and useful, please consider citing it.
 ```
@@ -124,7 +124,7 @@ If you find our work interesting and useful, please consider citing it.
 ```
 
 
-## 7. Acknowledgement
+## 8. Acknowledgement
 
 We would like to thank the authors of previous related projects for generously sharing their code, especially the [DiffusionCLIP](https://github.com/gwang-kim/DiffusionCLIP), from which our code is adapted. I would like also personally thank my math professor Alain CHILLÈS for insightful discussions on the theoretical analysis. 
 
