@@ -1,7 +1,15 @@
 # BoundaryDiffusion
 
-This is the official Pytorch implementation of the paper **[Boundary Guided Mixing Trajectory for Semantic Control with Diffusion Models](https://arxiv.org/abs/2302.08357)**. 
+Ye Zhu, Yu Wu, Zhiwei Deng, Olga Russakovsky, Yan Yan
 
+This is the official Pytorch implementation of the paper **[Boundary Guided Mixing Trajectory for Semantic Control with Diffusion Models](https://arxiv.org/abs/2302.08357)** (NeurIPS 2023). 
+
+
+### Updates:
+
+- (09/2023) Our *BoundaryDiffusion* paper accepted to **NeurIPS 2023**! Code released, and some ready-to-use boundaries are provided! Check *Section 5 Semantic Boundary Search*.
+
+ 
 
 Please find our **randomly selected, non-cherry-picked** results comparison with several learning-based state-of-the-art methods (Asyrp[ICLR23], DiffusionCLIP[CVPR22]) for the image semantic editing task below, usin **unconditionally** trained denoising diffusion probablistic models (DDPMs).
 
@@ -82,6 +90,8 @@ python main.py --boundary_search --config celeba.yml --exp ./runs/test --edit_at
 ```
 
 **Note:** To search for a good and well-define boundary, we may need to adjust the number of image samples used according to different attribute characteristics. An indicator for the semantic boundary is the classification accuracy for the test split.
+
+**Pre-localized boundaries:** We provide some pre-localized boundaries for easy use. For instance, for iDDPM trained on human faces, here is an example of [smile attribute at z space](https://drive.google.com/file/d/11Q2OW-g2OHE9Tr8_kNMjfezsr_WJI-nS/view?usp=sharing) and [smile attribute at h space](https://drive.google.com/file/d/1Oz71CmhtCg4RR87GEQuNqyxRzXhecw0W/view?usp=sharing). Another semantic boundary based on the text prompt ```red brick wall church``` at [z space](https://drive.google.com/file/d/1V-bjFVgH1LaA4oppKdftpCia-Abm3gKS/view?usp=sharing) or at [h space](https://drive.google.com/file/d/11MPuP0sm257tMcAfXPxwgfd-CliNWmCm/view?usp=sharing).
 
 
 
