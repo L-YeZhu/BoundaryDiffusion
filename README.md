@@ -7,7 +7,12 @@ This is the official Pytorch implementation of the paper **[Boundary Guided Mixi
 
 ### Updates:
 
+- (25/09/2023) For your information, we have made several changes to the ablation experiments on the operational space and analysis, the current paper version in ArXiv is not most up-to-date, we will release the camera-ready version shortly, thanks for the patience!
+
+- (09/2023) We have verified in our following experiments, the **BoundaryDiffusion** method is also applicable to latent diffusion models (StableDiffusion).
+
 - (09/2023) Our *BoundaryDiffusion* paper accepted to **NeurIPS 2023**! Code released, and some ready-to-use boundaries are provided! Check *Section 5 Semantic Boundary Search*.
+
 
  
 
@@ -34,7 +39,7 @@ Our methodology design in this work is based on the analysis of high-dimensional
 
 
  <p align="center">
-    <img src="assets/geo.png" width="500">
+    <img src="assets/geo_white.png" width="500">
 
 
 Our theoretical analysis also introduces the concept of **Mixing Step** to characterize the convergence of pre-trained diffusion models, inspired by the **Markov mixing time** study.
@@ -167,7 +172,7 @@ Our methodology design in this work is based on the analysis of high-dimensional
 
 
  <p align="center">
-    <img src="assets/geometry.png" width="500">
+    <img src="assets/geometry_white.png" width="500">
 
 
 Our theoretical analysis also introduces the concept of **Mixing Step** to characterize the convergence of pre-trained diffusion models, inspired by the **Markov mixing time** study.
