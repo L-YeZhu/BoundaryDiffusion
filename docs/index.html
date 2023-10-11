@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>BoundaryDiffusion</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+    <link rel="stylesheet" href="./resources/bootstrap.min(1).css">
+</head>
+
+
+<body>
+<div class="container" id="main">
+    <div class="row">
+        <h2 class="col-md-12 text-center">
+            Boundary Guided Mixing Trajectory for Semantic Control <br>
+             with Diffusion Models (a.k.a, <i>BoundaryDiffusion</i>)<br>
+            <small>
+                Ye Zhu, Yu Wu, Zhiwei Deng, Olga Russakovsky, Yan Yan
+            </small>
+        </h2>
+    </div>
+
+
+<div class="row">
+    <h4 class="col-md-12 text-center">
+        NeurIPS 2023 <br> <br>
+        <a href="https://arxiv.org/abs/2302.08357">Paper</a> &nbsp &nbsp &nbsp <a href="https://github.com/L-YeZhu/BoundaryDiffusion">Code</a>  
+    </h4> 
+    </div>   
+
+
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+        <h4>
+         <center>Please find our <b>randomly selected, non-cherry-picked</b> results comparison with several learning-based state-of-the-art methods (Asyrp[ICLR23], DiffusionCLIP[CVPR22]) for the image semantic editing task below, using <b>unconditionally</b> trained denoising diffusion probablistic models (DDPMs).
+        </h4>
+            <center><img src="./samples/non_cherry_picky.png" alt="Non-cherry-picky" width="750" class="center" >
+
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h3>
+            <center> 1. Take-Away
+            </h3>
+            <p class="text-justify">
+
+            Our <i>BoundaryDiffusion</i> features the first <b> learning-free </b> diffusion editing work with <b>unconditionally</b> pre-trained frozen DDPMs, which is a light-weight, effecient and resource-friendly method with strong state-of-the-art (SOTA) performance. 
+            The contributions of our work come from three high-level perspectives in terms of analytical, technical and experimental aspects, detailed as below:
+
+            <br> 
+
+           a). From the perspective of <i>diffusion latent space understanding and analysis</i>, we explicitly demonstrate that <b>unconditional</b> diffusion generative models (thus  w/o any semantic supervision in training), already exhibit meaningful semantic subspaces <b>in the generic level</b> with clear boundaries. In addition, we formulate the mixing step problem (analog to the mixing time studies in the Markov chain from mathematics) for diffusion models to characterize the forming process of such semantic subspaces in a theoretically supported way, and propose an automatic approach to search for it.
+
+            <br>
+            b). From the perspective of <i>methodology design</i>, we introduce a novel <b>learning-free</b> method that allows for efficient and effective semantic control with <b>pre-trained and frozen</b> denoising diffusion models in <b>one-step operation</b> at the previously found mixing step, by guiding the denoising trajectory to cross the target semantic boundary.
+
+
+            <br>
+
+            c). From the perspective of <i>experiments</i>, we conduct extensive experiments using different base diffusion architectures (DDPM, iDDPM), multiple datasets (CelebA, CelebA-HQ, LSUN-church, LSUN-bedroom, AFHQ-dog) and image resolutions (64, 256), achieving <b>SOTA performance</b> compared to other learning-based methods.
+
+            <br>
+
+
+        </div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h3>
+            <center> 2. Problem Overview
+            </h3>
+            <p class="text-justify">
+                Denoising Diffusion Probabilistic Models (DDPMs) have become the mainstream approach in the generative field for synthesizing high-quality images. The core problem in image generation is about learning a probabilistic model that captures the real data distribution. 
+                <br>
+
+                However, despite the impressive performance in image synthesis (distribution mapping), diffusion generative models are usually considered to be less semantic-aware (semantic understanding), especially in the case of <b>unconditionally trained DDPMs</b> without semantic supervision in the generic space along the denoising chain (in contrast to the <i>h</i>-space discussed in [1]).
+                <br>
+
+                The above finding suggests critical properties of DDPMs in terms of model understanding and allows for multiple downstream tasks with pre-trained models, such as the semantic control and manipulation we experiment with in this work.
+
+            <br>
+
+        </div>
+  
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h3>
+            <center> 3. High-Dimensional Latent Spaces Analysis
+            </h3>
+            <p class="text-justify">
+                A better understanding of the high-dimensional latent spaces along the Markov chain is critical to interpret and utilize the diffusion models, therefore, we propose to start this work by presenting novel theoretical and empirical analysis.
+            <br>
+
+            <!-- <h4> -->
+                <!-- <center> 3.1 Distance Effect from Asymmetric Denoising and Inversion -->
+            <!-- </h4> -->
+            <p class="text-justify">
+                Unlike existing understanding of the stochastic denoising and deterministic inversion, which believes the two directions form a symmetric trajectory [1,2]. 
+                We demonstrate that the two processes are asymmetric, geometrically illustrated below, where the inverted latent encodings no long follow a standard Gaussian, in contrast to the directly sampled ones.
+            <br>
+                <center><img src="./samples/geo_white.png" alt="geo" width="500" class="centerImage">
+            <br>
+            <p class="text-justify">
+                The above finding reveals the <i>distance effect</i> that impairs the quality of final synthesized images, when directly imposing an editing signal (<i>i.e.,</i> a distance shift in the high-dimensional space) on the inverted latent encodings from given real images.
+            <!-- <h4> -->
+                <!-- <center> 3.2 Mixing Step in Diffusion Models -->
+            <!-- </h4> -->
+            <p class="text-justify">
+                We then propose to study the convergence along the Markov chain, which features a critical diffusion step where we should edit the latent encoding to achieve the semantic control.
+                <br>
+
+        </div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h3>
+            <center> 4. <i>BoundaryDiffusion</i> Method
+            </h3>
+            <p class="text-justify">
+                Our proposed <i>BoundaryDiffusion</i> method consists of two steps: fitting semantic boudaries, and mixing trajectory.
+                <br>
+
+                We use SVMs to fit the semantic boundary in the form of hyperplanes, and then to guide the original denoising trajectory to cross the target boundary at the critical mixing step.
+                <br>
+
+                <center><img src="./samples/mixing_traj_white.png" alt="traj" width="500" class="centerImage">
+            <br>
+
+        </div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h3>
+            <center> 5. Experiments for Semantic Control
+            </h3>
+            <p class="text-justify">
+                We conduct extensive experiments on three semantic manipulation tasks: <i>real image conditioned semantic editing</i>, <i>real image conditioned text-based editing</i>, and <i>unconditional image synthesis with semantic control</i>, on CelabA-HQ, LSUN-Church, LSUN-Bedroom, AFHQ-Dog datasets using different model architectures (DDPMs [5], improved DDPMs[6]), achieving <b>state-of-the-art performance</b> compared to the learning-based methods [1,2], with negligible boundary search time (~1s), and without changing any parameters from the pre-trained base model.            <br>
+
+                More ablation results, quantitative scores and qualitative examples are included in the paper and the appendices.
+                <center><img src="./samples/main.png" alt="main" width="600" class="centerImage">
+            <br>
+
+        </div>
+
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h4>
+            <center> References
+            </h4>
+            <p class="text-justify">
+               [1] Kwon, Mingi, Jaeseok Jeong, and Youngjung Uh. “Diffusion models already have a semantic latent space.” In ICLR 2023. <br>
+               [2] Kim, Gwanghyun, Taesung Kwon, and Jong Chul Ye. “Diffusionclip: Text-guided diffusion models for robust image manipulation.” In CVPR. 2022. <br>
+               [3] Preechakul, Konpat, Nattanat Chatthee, Suttisak Wizadwongsa, and Supasorn Suwajanakorn. “Diffusion autoencoders: Toward a meaningful and decodable representation.” In CVPR. 2022. <br>
+               [4] Song, Jiaming, Chenlin Meng, and Stefano Ermon. “Denoising diffusion implicit models.” In ICLR 2021. <br>
+               [5] Ho, Jonathan, Ajay Jain, and Pieter Abbeel. “Denoising diffusion probabilistic models.” In NeurIPs 2020. <br>
+               [6] Nichol, Alexander Quinn, and Prafulla Dhariwal. “Improved denoising diffusion probabilistic models.” In ICML, 2021. <br>
+            <br><br>
+
+        </div>
+
+
+
+</div>
+</body>
+</html>
