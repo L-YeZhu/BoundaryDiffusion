@@ -2,7 +2,7 @@
 
 Ye Zhu, Yu Wu, Zhiwei Deng, Olga Russakovsky, Yan Yan
 
-This is the official Pytorch implementation of the paper **[Boundary Guided Mixing Trajectory for Semantic Control with Diffusion Models](https://arxiv.org/abs/2302.08357)** (NeurIPS 2023). 
+This is the official Pytorch implementation of the paper **[Boundary Guided Learning-Free Semantic Control with Diffusion Models](https://arxiv.org/abs/2302.08357)** (NeurIPS 2023). 
 
 
 [Paper](https://arxiv.org/abs/2302.08357) | [Project Page](https://l-yezhu.github.io/BoundaryDiffusion/)
@@ -10,7 +10,7 @@ This is the official Pytorch implementation of the paper **[Boundary Guided Mixi
 
 ### Updates:
 
-- (25/09/2023) For your information, we have made several changes to the ablation experiments on the operational space and analysis, the current paper version in ArXiv is not most up-to-date, we will release the camera-ready version shortly, thanks for the patience!
+- Camera-ready version available!
 
 - (09/2023) We have verified in our following experiments, the **BoundaryDiffusion** method is also applicable to latent diffusion models (StableDiffusion).
 
