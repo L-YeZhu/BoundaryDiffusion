@@ -133,10 +133,10 @@ For text-conditioned semantic control, you will need to first generate some synt
 
 If you find our work interesting and useful, please consider citing it.
 ```
-@article{zhu2023boundary,
-  title={Boundary Guided Mixing Trajectory for Semantic Control with Diffusion Models},
+@inproceedings{zhu2023boundary,
+  title={Boundary Guided Learning-Free Semantic Control with Diffusion Models},
   author={Zhu, Ye and Wu, Yu and Deng, Zhiwei and Russakovsky, Olga and Yan, Yan},
-  journal={arXiv preprint arXiv:2302.08357},
+  booktitle={Conference on Neural Information Processing Systems (NeurIPS)},
   year={2023}
 }
 ```
