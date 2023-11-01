@@ -10,7 +10,7 @@ This is the official Pytorch implementation of the paper **[Boundary Guided Lear
 
 ### Updates:
 
-- Camera-ready version available!
+- (11/2023) If you are interested in further in-depth latent space understanding and analyis of diffusion models and curious about what they can, please check my recent follow-up work that uses pre-trained diffusion models for unseen image synthsis [UnseenDiffusion paper](https://arxiv.org/abs/2310.09213). If you are more interested in application oriented works, and want to follow this learning-free paradigm for data custimization tasks with StableDiffusion, please check my co-authored follow-up work [COW](https://arxiv.org/abs/2306.08247). 
 
 - (09/2023) We have verified in our following experiments, the **BoundaryDiffusion** method is also applicable to latent diffusion models (StableDiffusion).
 
